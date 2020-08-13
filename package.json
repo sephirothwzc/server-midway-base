@@ -59,6 +59,11 @@
   },
   "author": "zhanchao.wu@icloud.com",
   "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "gitHooks": {
     "commit-msg": "commitlint -e -V "
   },
