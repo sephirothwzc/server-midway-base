@@ -19,5 +19,5 @@ export interface IUserResult {
  * @description User-Service abstractions
  */
 export interface IUserService {
-  getUser(options: IUserOptions): Promise<IUserResult>;
+  getUser(options: IUserOptions): Promise<any>;
 }

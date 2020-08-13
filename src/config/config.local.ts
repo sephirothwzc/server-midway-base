@@ -10,3 +10,12 @@ export const development = {
   ],
   overrideDefault: true,
 };
+
+export const mongoose = {
+  client: {
+    url: 'mongodb://127.0.0.1:27017/midway-base',
+    options: {},
+    // mongoose global plugins, expected a function or an array of function and options :createdPlugin, [updatedPlugin, pluginOptions]
+    plugins: [],
+  },
+};
