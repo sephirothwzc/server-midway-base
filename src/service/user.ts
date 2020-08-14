@@ -1,14 +1,18 @@
 import { provide, inject } from 'midway';
-import { IUserService, IUserOptions } from '../interface';
-// import { ServiceBase } from '../lib/base/service.base';
 import { Model, Document } from 'mongoose';
 
+export interface IUserService extends UserService {}
+
 @provide('userService')
-export class UserService implements IUserService {
+export class UserService {
   @inject()
   UserModel: Model<Document>;
 
-  async getUser(options: IUserOptions): Promise<any> {
+  async getUser(options: any): Promise<any> {
     return this.UserModel.find();
+  }
+
+  async postUser(options: any): Promise<any> {
+    return this.UserModel.create(options);
   }
 }
