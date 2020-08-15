@@ -8,7 +8,7 @@ export class UserService {
   @inject()
   UserModel: Model<Document>;
 
-  async getUser(options: any): Promise<any> {
+  async find(options: any): Promise<any> {
     return this.UserModel.find();
   }
 

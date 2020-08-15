@@ -9,7 +9,7 @@ export default (appInfo: EggAppInfo) => {
   config.keys = appInfo.name + '_1597295642493_934';
 
   // add your config here
-  config.middleware = [];
+  config.middleware = ['graphql'];
 
   config.cluster = {
     listen: {

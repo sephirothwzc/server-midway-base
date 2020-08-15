@@ -4,6 +4,7 @@
   "description": "base",
   "private": true,
   "dependencies": {
+    "egg-graphql": "^2.8.0",
     "egg-mongoose": "^3.3.0",
     "egg-scripts": "^2.10.0",
     "lodash": "^4.17.19",
