@@ -1,8 +1,8 @@
 /*
  * @Author: zhanchao.wu
- * @Date: 2020-08-15 13:37:16
+ * @Date: 2020-08-15 22:49:09
  * @Last Modified by: zhanchao.wu
- * @Last Modified time: 2020-08-15 22:16:00
+ * @Last Modified time: 2020-08-15 22:50:01
  */
 import { Application } from 'midway';
 
@@ -11,10 +11,10 @@ module.exports = (app: Application) => {
   const Schema = mongoose.Schema;
   // const conn = app.mongooseDB.get('db1');
 
-  const roleSchema = new Schema({
-    roleName: { type: String },
-    roleCode: { type: String },
+  const permissionsSchema = new Schema({
+    name: { type: String },
+    code: { type: String },
   });
-  return mongoose.model('role', roleSchema);
+  return mongoose.model('permissions', permissionsSchema);
   // return conn.model('user', userSchema);
 };

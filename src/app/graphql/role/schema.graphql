@@ -2,3 +2,16 @@ type Role {
   roleName: String!
   roleCode: String!
 }
+
+extend type Query {
+  role(roleName: String): [Role]!
+}
+
+extend type Mutation {
+  roleSave(param: RoleSaveIn): String
+}
+
+input RoleSaveIn {
+  roleName: String!
+  roleCode: String!
+}
