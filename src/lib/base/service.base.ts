@@ -1,19 +1,33 @@
-import { inject, Context } from 'midway';
-
 /*
  * @Author: zhanchao.wu
- * @Date: 2020-08-13 22:48:40
+ * @Date: 2020-08-15 21:16:00
  * @Last Modified by: zhanchao.wu
- * @Last Modified time: 2020-08-13 22:55:52
+ * @Last Modified time: 2020-08-15 23:01:21
  */
-export class ServiceBase {
-  constructor(@inject() ctx: Context) {
-    this.model = ctx.model;
+import { provide } from 'midway';
+import { Model, Document } from 'mongoose';
+
+@provide()
+export abstract class ServiceBase {
+  abstract get Model(): Model<Document>;
+
+  async find(options: any): Promise<any> {
+    return this.Model.find();
   }
 
-  private model: any;
+  async findOne(options: any): Promise<any> {
+    return this.Model.findOne(options);
+  }
 
-  public get Model() {
-    return this.model;
+  async findById(options: any): Promise<any> {
+    return this.Model.findById(options);
+  }
+
+  async save(options: any): Promise<any> {
+    return this.Model.create(options);
+  }
+
+  async remove(options: any): Promise<any> {
+    return this.Model.remove(options);
   }
 }
