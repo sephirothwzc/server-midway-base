@@ -2,7 +2,7 @@
  * @Author: zhanchao.wu
  * @Date: 2020-08-15 21:38:25
  * @Last Modified by: zhanchao.wu
- * @Last Modified time: 2020-08-15 22:58:15
+ * @Last Modified time: 2020-08-16 10:25:52
  */
 
 module.exports = (serviceName) => {
@@ -16,6 +16,7 @@ module.exports = (serviceName) => {
     return service;
   }
   return {
+    getService,
     Query: {
       [serviceName]: async (_root, _args, ctx, _info) => {
         const service = await getService(ctx);

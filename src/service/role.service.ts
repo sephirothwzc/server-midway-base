@@ -12,4 +12,8 @@ export class RoleService extends ServiceBase {
   get Model(): Model<Document, {}> {
     return this.RoleModel;
   }
+
+  async findByUserId(user: any, param: any): Promise<any[]> {
+    return this.Model.find({ userId: user._id });
+  }
 }

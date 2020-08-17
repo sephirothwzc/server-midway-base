@@ -1,6 +1,7 @@
 type Role {
   roleName: String!
   roleCode: String!
+  permissions: [Permissions]
 }
 
 extend type Query {
