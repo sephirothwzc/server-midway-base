@@ -4,7 +4,9 @@
   "description": "base",
   "private": true,
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "egg-graphql": "^2.8.0",
+    "egg-jwt": "^3.1.7",
     "egg-mongoose": "^3.3.0",
     "egg-scripts": "^2.10.0",
     "lodash": "^4.17.19",
@@ -14,6 +16,7 @@
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-angular": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
+    "@types/bcryptjs": "^2.4.2",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.5.5",
     "commitizen": "^4.1.2",

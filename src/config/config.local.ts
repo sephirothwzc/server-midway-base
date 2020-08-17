@@ -1,3 +1,5 @@
+import { Context } from 'midway';
+
 export const development = {
   watchDirs: [
     'app',
@@ -9,6 +11,10 @@ export const development = {
     'interface.ts',
   ],
   overrideDefault: true,
+};
+
+export const jwt = {
+  secret: '123456',
 };
 
 export const mongoose = {
@@ -31,9 +37,13 @@ export const graphql = {
   // 是否设置默认的Query和Mutation, 默认关闭
   defaultEmptySchema: true,
   // graphQL 路由前的拦截器
-  // *onPreGraphQL(ctx: Context) {},
+  onPreGraphQL(ctx: Context) {
+    console.log(`onPreGraphQL`);
+  },
   // // 开发工具 graphiQL 路由前的拦截器，建议用于做权限操作(如只提供开发者使用)
-  // *onPreGraphiQL(ctx: Context) {},
+  onPreGraphiQL(ctx: Context) {
+    console.log(`onPreGraphiQL`);
+  },
   // // apollo server的透传参数，参考[文档](https://www.apollographql.com/docs/apollo-server/api/apollo-server/#parameters)
   // apolloServerOptions: {
   //   rootValue,

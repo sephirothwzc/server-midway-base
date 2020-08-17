@@ -11,10 +11,17 @@ extend type Query {
 
 extend type Mutation {
   userSave(param: UserSaveIn): String
+  login(userName: String!, password: String!): LoginMsg
 }
 
 input UserSaveIn {
   _id: ID
   userName: String!
   password: String!
+}
+
+type LoginMsg {
+  _id: ID
+  token: String
+  message: String
 }

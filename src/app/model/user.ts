@@ -2,7 +2,7 @@
  * @Author: zhanchao.wu
  * @Date: 2020-08-13 21:34:47
  * @Last Modified by: zhanchao.wu
- * @Last Modified time: 2020-08-13 22:47:04
+ * @Last Modified time: 2020-08-17 22:43:24
  */
 import { Application } from 'midway';
 
