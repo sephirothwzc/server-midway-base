@@ -4,16 +4,17 @@ import { ServiceBase } from '../lib/base/service.base';
 import { IUserDoc } from '../app/interfaces/user.doc';
 import * as _ from 'lodash';
 import * as bcrypt from 'bcryptjs';
+import { promisify } from 'util';
 
 export interface IUserService extends UserService {}
 
 @provide()
 export class UserService extends ServiceBase {
   get Model(): Model<IUserDoc> {
-    return this.UserModel;
+    return this.userModel;
   }
   @inject()
-  UserModel: Model<IUserDoc>;
+  userModel: Model<IUserDoc>;
 
   @plugin()
   jwt: any;
@@ -23,15 +24,16 @@ export class UserService extends ServiceBase {
 
   async login(param: { userName: string; password: string }): Promise<any> {
     const user = await this.Model.findOne({ userName: param.userName });
-    const pwdbool = bcrypt.compareSync(
+    const compareAsync = promisify(bcrypt.compare);
+    const pwdbool = await compareAsync(
       param.password,
       _.get(user, 'password', '')
     );
     if (pwdbool) {
       return {
-        _id: user._id,
         token: this.jwt.sign(
           {
+            _id: user._id,
             userName: user.userName,
             exp: Math.floor(Date.now() / 1000) + 60 * 60, // 60 seconds * 60 minutes = 1 hour
           },
@@ -43,5 +45,11 @@ export class UserService extends ServiceBase {
     return {
       message: '用户名或密码错误',
     };
+  }
+
+  async save(options: any): Promise<any> {
+    const hash = promisify(bcrypt.hash);
+    options.password = await hash(options.password, 16);
+    return super.save(options);
   }
 }

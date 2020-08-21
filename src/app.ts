@@ -17,7 +17,10 @@ class AppBootHook {
     // 请将你的插件项目中 app.beforeStart 中的代码置于此处。
     const models = _.get(this.app, 'model');
     _.keys(models).forEach((p: string) => {
-      this.app.applicationContext.registerObject(`${p}Model`, models[p]);
+      this.app.applicationContext.registerObject(
+        `${_.camelCase(p)}Model`,
+        models[p]
+      );
     });
   }
 
