@@ -54,3 +54,26 @@ export const graphql = {
     console.log(`onPreGraphiQL`);
   },
 };
+
+/**
+ * sequelize数据库链接
+ */
+export const sequelize = {
+  host: 'rm-2zeaweolbpv98fozjpo.mysql.rds.aliyuncs.com',
+  port: 3306,
+  database: 'sephiroth_base',
+  username: 'root_wzc',
+  password: '183196615Wzc',
+  timezone: '+08:00',
+  modelFile: 'ts',
+  dialectOptions: {
+    dateStrings: true,
+    typeCast: (field: any, next: () => void) => {
+      // for reading from database
+      if (field.type === 'DATETIME') {
+        return field.string();
+      }
+      return next();
+    },
+  },
+};
