@@ -53,22 +53,4 @@ export const graphql = {
     console.log(ctx.header);
     console.log(`onPreGraphiQL`);
   },
-  // // apollo server的透传参数，参考[文档](https://www.apollographql.com/docs/apollo-server/api/apollo-server/#parameters)
-  // apolloServerOptions: {
-  //   rootValue,
-  //   formatError,
-  //   formatResponse,
-  //   mocks,
-  //   schemaDirectives,
-  //   introspection,
-  //   playground,
-  //   debug,
-  //   validationRules,
-  //   tracing,
-  //   cacheControl,
-  //   subscriptions,
-  //   engine,
-  //   persistedQueries,
-  //   cors,
-  // },
 };
