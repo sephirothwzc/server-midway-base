@@ -39,7 +39,9 @@
     "node": ">=10.16.0"
   },
   "scripts": {
-    "commit": "git-cz && yarn changelog",
+    // 提交
+    "commit": "git-cz",
+    // 生成log日志
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "start": "egg-scripts start --daemon --title=midway-server-server-midway-base --framework=midway --ts",
     "stop": "egg-scripts stop --title=midway-server-server-midway-base",
