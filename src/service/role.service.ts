@@ -7,10 +7,10 @@ export interface IRoleService extends RoleService {}
 @provide()
 export class RoleService extends ServiceBase {
   @inject()
-  RoleModel: Model<Document>;
+  roleModel: Model<Document>;
 
   get Model(): Model<Document, {}> {
-    return this.RoleModel;
+    return this.roleModel;
   }
 
   async findByUserId(user: any, param: any): Promise<any[]> {

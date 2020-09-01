@@ -10,4 +10,8 @@ export default {
     enable: true,
     package: 'egg-graphql',
   },
+  jwt: {
+    enable: true,
+    package: 'egg-jwt',
+  },
 } as EggPlugin;

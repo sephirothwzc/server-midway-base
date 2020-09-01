@@ -7,9 +7,9 @@ export interface IPermissionsService extends PermissionsService {}
 @provide()
 export class PermissionsService extends ServiceBase {
   @inject()
-  PermissionsModel: Model<Document>;
+  permissionsModel: Model<Document>;
 
   get Model(): Model<Document, {}> {
-    return this.PermissionsModel;
+    return this.permissionsModel;
   }
 }
