@@ -5,43 +5,47 @@
   "private": true,
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "biguint-format": "^1.0.2",
     "egg-graphql": "^2.8.0",
     "egg-jwt": "^3.1.7",
     "egg-mongoose": "^3.3.0",
     "egg-scripts": "^2.10.0",
-    "egg-sequelize": "^5.2.2",
+    "flake-idgen": "^1.4.0",
     "lodash": "^4.17.19",
     "midway": "^1.0.0",
-    "mysql2": "^2.1.0"
+    "mysql2": "^2.1.0",
+    "sequelize": "5.21.13",
+    "sequelize-typescript": "^1.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-angular": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
     "@types/bcryptjs": "^2.4.2",
+    "@types/flake-idgen": "^0.1.30",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.5.5",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
     "commitizen": "^4.1.2",
     "conventional-changelog-cli": "^2.1.0",
     "cross-env": "^6.0.0",
     "cz-conventional-changelog": "^3.2.0",
     "egg-ci": "^1.8.0",
+    "eslint": "^7.8.0",
+    "eslint-midway-contrib": "^1.20.1",
     "husky": "^4.2.5",
     "midway-bin": "1",
     "midway-mock": "1",
     "ts-node": "^8.3.0",
     "tslib": "^1.8.1",
-    "tslint": "^5.11.0",
-    "tslint-midway-contrib": "1",
     "typescript": "^3.5.0"
   },
   "engines": {
     "node": ">=10.16.0"
   },
   "scripts": {
-    // 提交
     "commit": "git-cz",
-    // 生成log日志
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "start": "egg-scripts start --daemon --title=midway-server-server-midway-base --framework=midway --ts",
     "stop": "egg-scripts stop --title=midway-server-server-midway-base",
@@ -51,7 +55,6 @@
     "debug": "cross-env NODE_ENV=local midway-bin debug --ts",
     "test": "npm run lint && midway-bin test --ts",
     "cov": "midway-bin cov --ts",
-    "lint": "tslint --fix -p tsconfig.json -t stylish",
     "ci": "npm run cov",
     "build": "midway-bin build -c",
     "autod": "midway-bin autod"
