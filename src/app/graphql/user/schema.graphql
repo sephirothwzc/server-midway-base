@@ -1,0 +1,27 @@
+type User {
+  _id: ID
+  userName: String!
+  password: String!
+  roles: [Role]
+}
+
+extend type Query {
+  user(id: ID): [User]!
+}
+
+extend type Mutation {
+  userSave(param: UserSaveIn): String
+  login(userName: String!, password: String!): LoginMsg
+}
+
+input UserSaveIn {
+  _id: ID
+  userName: String!
+  password: String!
+}
+
+type LoginMsg {
+  _id: ID
+  token: String
+  message: String
+}

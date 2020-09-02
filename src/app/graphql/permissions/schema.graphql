@@ -1,0 +1,19 @@
+type Permissions {
+  _id: ID
+  name: String!
+  code: String!
+}
+
+extend type Query {
+  permissions(id: ID): [Permissions]
+}
+
+extend type Mutation {
+  permissionsSave(param: PermissionsSaveIn): String
+}
+
+input PermissionsSaveIn {
+  _id: ID
+  name: String!
+  code: String!
+}
