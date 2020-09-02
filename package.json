@@ -37,6 +37,7 @@
     "husky": "^4.2.5",
     "midway-bin": "1",
     "midway-mock": "1",
+    "sequelize-cli": "^6.2.0",
     "ts-node": "^8.3.0",
     "tslib": "^1.8.1",
     "typescript": "^3.5.0"
